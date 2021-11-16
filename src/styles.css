@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-grid-tile .mat-figure{
+	align-items: start !important;
+}
+.yesbtn{
+  background: #d8d8d8;
+      border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-right: 10px;
+    
+    font-size: 14px;
+}
+.nobtn{
+	background: transparent;
+	border: none;
+	 padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.example-full-width{
+  width: 100%;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+.genderLable{
+  padding-right: 10px;
+}
+.mat-dialog-content{
+  max-height: auto !important;
+  overflow: hidden !important;
+}

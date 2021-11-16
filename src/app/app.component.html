@@ -1,0 +1,95 @@
+
+<mat-toolbar class="top_toolbar">
+  <button mat-icon-button class="menu-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>User</span>
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu" class="userbutton"><mat-icon>account_circle</mat-icon> John Doe</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Logout</button>
+   
+  </mat-menu>
+</mat-toolbar>
+
+
+<div class="container">
+
+<mat-grid-list cols="4" style="min-height: 100vh;" gutterSize="10px">
+  <mat-grid-tile colspan="3" rowHeight="fit" >
+    <div class="usetableList">
+      <p>User List</p>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mytable">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef> Gender </th>
+          <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef> Address </th>
+          <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+         <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element"> 
+
+             <button mat-flat-button  color="primary" type="button" (click)="OpenEditModal()" style="margin:0px 20px;" class="deletebtn"><mat-icon>edit</mat-icon> </button>
+
+
+            <button mat-flat-button  color="primary" type="button" (click)="OpenModal()" style="margin:0px 20px;" class="deletebtn"><mat-icon>delete</mat-icon></button>
+           
+           </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+ <!-- <button mat-button (click)="openDialog()"><mat-icon>delete</mat-icon></button> -->
+
+ 
+
+
+  </mat-grid-tile>
+  <mat-grid-tile >
+    <div class="innerProgress">
+    <p>Progress</p>
+    <table class="progresstable">
+      <tr>
+        <th>Male user:</th>
+        <td>3</td>
+      </tr>
+      <tr>
+        <th>Female user:</th>
+        <td>3</td>
+      </tr>
+    </table>
+  </div>
+
+
+  </mat-grid-tile>
+  
+</mat-grid-list>
+</div>
+<router-outlet></router-outlet>
+
+
